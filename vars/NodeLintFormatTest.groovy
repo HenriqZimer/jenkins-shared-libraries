@@ -14,6 +14,9 @@ def call(body) {
         echo "⚡ NODEJS LINT-FORMAT-TEST PIPELINE"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+        PROJECT=${PROJECT}
+        PROJECT_MODE=${PROJECT_MODE}
+
         REPOSITORY=$(echo ${JOB_NAME%/*} | tr '[:upper:]' '[:lower:]')
 
         echo "📋 Pipeline Configuration:"

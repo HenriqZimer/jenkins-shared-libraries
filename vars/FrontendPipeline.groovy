@@ -14,6 +14,10 @@ def call (body = null) {
     }
     stages {
       stage('Lint Format Test') {
+        environment {
+          PROJECT = 'meu-site'
+          PROJECT_MODE = 'frontend'
+        }
         steps {
           NodeLintFormatTest { }
         }

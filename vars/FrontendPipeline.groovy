@@ -167,7 +167,7 @@ def call (body = null) {
           GIT_URL = 'github.com'
           GIT_EMAIL = 'jenkins@henriqzimer.com.br'
           GIT_USER = 'Jenkins CI'
-          GIT_SSH_URL = 'git@github.com:HenriqZimer/Meu-Site-Frontend.git'
+          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-frontend.git'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'backend'
         }

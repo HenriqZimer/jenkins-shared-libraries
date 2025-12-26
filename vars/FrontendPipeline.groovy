@@ -104,6 +104,7 @@ def call (body = null) {
           NAMESPACE = 'testes-ci'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'frontend'
+          PROJECT_MODE_DP='backend'
           PORT = '3000'
           HEALTHCHECK_ENDPOINT = '/'
         }

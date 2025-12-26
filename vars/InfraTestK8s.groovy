@@ -19,6 +19,7 @@ def call (body) {
       NAMESPACE=${NAMESPACE}
       PROJECT=${PROJECT}
       PROJECT_MODE=${PROJECT_MODE}
+      PROJECT_MODE_DP=${PROJECT_MODE_DP}
       PORT=${PORT}
       HEALTHCHECK_ENDPOINT=${HEALTHCHECK_ENDPOINT}
 
@@ -45,6 +46,7 @@ def call (body) {
       fi
 
       IMAGE_TAG="$(cat /artifacts/${PROJECT}/${PROJECT_MODE}/${ENVIRONMENT}.artifact)"
+      IMAGE_TAG_DP="$(cat /artifacts/${PROJECT}/${PROJECT_MODE_DP}/${ENVIRONMENT}.artifact)"
       echo "   • Image Tag:    ${IMAGE_TAG}"
       echo ""
 
@@ -90,6 +92,7 @@ def call (body) {
         --values values-ci.yaml \
         --namespace ${NAMESPACE} \
         --create-namespace \
+        --set deployments.${PROJECT_MODE_DP}.image.tag="${IMAGE_TAG_DP}" \
         --set deployments.${PROJECT_MODE}.image.tag="${IMAGE_TAG}" \
         --wait \
         --timeout 5m

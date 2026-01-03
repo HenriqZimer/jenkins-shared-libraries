@@ -104,7 +104,7 @@ def call (body = null) {
           NAMESPACE = 'testes-ci-backend'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'backend'
-          PROJECT_MODE_DP='frontend'
+          PROJECT_MODE_DP = 'frontend'
           PORT = '5000'
           HEALTHCHECK_ENDPOINT = '/api/skills'
         }
@@ -207,6 +207,11 @@ def call (body = null) {
           }
         }
       }
+    }
+    post {
+        always {
+            EmailNotification('henrique.zimermann@outlook.com')
+        }
     }
   }
 }

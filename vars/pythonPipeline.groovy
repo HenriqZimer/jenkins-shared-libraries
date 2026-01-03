@@ -188,5 +188,10 @@ def call (body = null) {
         }
       }
     }
+    post {
+        always {
+            EmailNotification('henrique.zimermann@outlook.com')
+        }
+    }
   }
 }

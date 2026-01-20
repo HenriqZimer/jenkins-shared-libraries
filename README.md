@@ -672,19 +672,6 @@ Contributions are welcome! Please follow these guidelines:
 - Include parameter documentation
 - Provide usage examples
 
-## 🔄 Roadmap
-
-- [ ] GitLab CI/CD integration
-- [ ] Multi-cloud deployment support (AWS, GCP, Azure)
-- [ ] Terraform infrastructure provisioning
-- [ ] Slack notification integration
-- [ ] Advanced canary deployment strategies
-- [ ] ArgoCD GitOps integration
-- [ ] Helm chart deployment library
-- [ ] Database migration utilities
-- [ ] Performance testing integration
-- [ ] Cost optimization reporting
-
 ## 🤝 Acknowledgments
 
 This library leverages the following technologies:
@@ -699,14 +686,6 @@ This library leverages the following technologies:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📧 Support
-
-For questions and support:
-
-- 📧 Email: devops@yourdomain.com
-- 💬 Slack: #jenkins-pipelines
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/jenkins-shared-libraries/issues)
 
 ---
 

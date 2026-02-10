@@ -52,7 +52,7 @@ def call (body) {
       echo "   • Tag:          ${TAG}"
       echo ""
 
-      DESTINATION="${REGISTRY}/${PROJECT}/${REPOSITORY}:${TAG}"
+      DESTINATION="${REGISTRY}/${PROJECT}/${PROJECT_MODE}:${TAG}"
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       echo "📦 Step 1/2: Building container image..."

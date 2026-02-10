@@ -6,8 +6,8 @@ def call (body) {
 
   container('helm') {
     sh '''
-      set -e
-      set +x
+      # set -e
+      # set +x
 
       echo ""
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

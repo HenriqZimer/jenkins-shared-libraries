@@ -121,7 +121,7 @@ def call (body = null) {
           always {
             container('helm') {
               sh '''
-                helm uninstall ${PROJECT}-${PROJECT_MODE} --namespace ${NAMESPACE}
+                helm uninstall ${PROJECT} --namespace ${NAMESPACE}
               '''
             }
           }

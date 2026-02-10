@@ -98,7 +98,7 @@ def call (body = null) {
       }
       stage('Infrastructure Tests on K8s') {
         environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-gitea')
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
           GIT_SSH_URL = 'git@github.com:HenriqZimer/helm-applications.git'
           NAMESPACE = 'testes-ci-backend'
@@ -148,7 +148,7 @@ def call (body = null) {
       }
       stage('Deploy to Staging') {
         environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-gitea')
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
           GIT_EMAIL = 'jenkins@henriqzimer.com.br'
           GIT_USER = 'Jenkins CI'
@@ -168,7 +168,7 @@ def call (body = null) {
       }
       stage('Create Tag?') {
         environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-gitea')
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
           GIT_EMAIL = 'jenkins@henriqzimer.com.br'
           GIT_USER = 'Jenkins CI'

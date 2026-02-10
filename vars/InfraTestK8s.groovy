@@ -75,9 +75,9 @@ def call (body) {
 
       git clone ${GIT_SSH_URL}
       echo "   ✓ Repository cloned"
-      # cd chart && cd ci
-      # echo "   ✓ Changed to CI directory"
-      # echo ""
+      cd meu-site-helm-chart
+      echo "   ✓ Changed to CI directory"
+      echo ""
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       echo "⚙️  Step 4/5: Deploying test instance with Helm..."

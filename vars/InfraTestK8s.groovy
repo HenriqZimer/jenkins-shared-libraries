@@ -87,7 +87,7 @@ def call (body) {
       echo "   • Image Tag:     ${IMAGE_TAG}"
       echo ""
 
-      helm upgrade --install --force ${PROJECT}-${PROJECT_MODE} ./ \
+      helm upgrade --install --force ${PROJECT} ./ \
         --values values-ci.yaml \
         --namespace ${NAMESPACE} \
         --create-namespace \

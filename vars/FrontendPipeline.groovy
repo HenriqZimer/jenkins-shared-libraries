@@ -98,9 +98,9 @@ def call (body = null) {
       }
       stage('Infrastructure Tests on K8s') {
         environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-gitea')
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
-          GIT_SSH_URL = 'git@github.com:HenriqZimer/helm-applications.git'
+          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
           NAMESPACE = 'testes-ci-frontend'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'frontend'

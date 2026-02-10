@@ -100,7 +100,7 @@ def call (body = null) {
         environment {
           JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
-          GIT_SSH_URL = 'git@github.com:HenriqZimer/helm-applications.git'
+          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
           NAMESPACE = 'testes-ci-backend'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'backend'

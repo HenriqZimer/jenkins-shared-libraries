@@ -70,14 +70,14 @@ def call (body) {
       echo ""
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-      echo "📥 Step 3/5: Cloning helm-applications repository..."
+      echo "📥 Step 3/5: Cloning helm repository..."
       echo ""
 
       git clone ${GIT_SSH_URL}
       echo "   ✓ Repository cloned"
 
-      cd helm-applications/${PROJECT}
-      echo "   ✓ Changed to ${PROJECT} directory"
+      cd chart/ci
+      echo "   ✓ Changed to CI directory"
       echo ""
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

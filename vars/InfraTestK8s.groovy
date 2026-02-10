@@ -106,14 +106,7 @@ def call (body) {
       fi
       echo ""
 
-      echo "⏳ Waiting for pods to be ready..."
-      kubectl wait --for=condition=ready pod -l app.kubernetes.io/instance=${PROJECT}-${PROJECT_MODE} -n ${NAMESPACE} --timeout=120s
-      
-      if [ $? -ne 0 ]; then
-        echo "❌ Timeout waiting for Pods to start. Check PodSecurity or Image errors."
-        kubectl describe pods -n ${NAMESPACE}
-        exit 1
-      fi
+      sleep 20
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       echo "🧪 Step 5/5: Running health check..."

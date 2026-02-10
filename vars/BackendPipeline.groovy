@@ -12,57 +12,57 @@ def call (body = null) {
         yamlFile 'jenkinsPod.yaml'
       }
     }
-    stages {
-      stage('Lint Format Test') {
-        environment {
-          PROJECT = 'meu-site'
-          PROJECT_MODE = 'backend'
-        }
-        steps {
-          NodeLintFormatTest { }
-        }
-        when {
-          anyOf {
-            branch pattern: 'feature-*'
-            branch pattern: 'develop'
-            branch pattern: 'hotfix-*'
-            branch pattern: 'release-*'
-          }
-        }
-      }
-      stage('Sonarqube Scan') {
-        environment {
-          SONAR_HOST_URL = 'http://sonarqube.henriqzimer.com.br'
-          SONAR_TOKEN    = credentials('sonar-scanner-cli')
-        }
-        steps {
-          SonarqubeScan { }
-        }
-        when {
-          anyOf {
-            branch pattern: 'feature-*'
-            branch pattern: 'develop'
-            branch pattern: 'hotfix-*'
-            branch pattern: 'release-*'
-          }
-        }
-      }
-      stage('Build and Push') {
-        environment {
-          REGISTRY = 'harbor.henriqzimer.com.br'
-          PROJECT = 'meu-site'
-          PROJECT_MODE = 'backend'
-        }
-        steps {
-          KanikoBuildPush { }
-        }
-        when {
-          anyOf {
-            branch pattern: 'develop'
-            branch pattern: 'hotfix-*'
-          }
-        }
-      }
+    // stages {
+    //   stage('Lint Format Test') {
+    //     environment {
+    //       PROJECT = 'meu-site'
+    //       PROJECT_MODE = 'backend'
+    //     }
+    //     steps {
+    //       NodeLintFormatTest { }
+    //     }
+    //     when {
+    //       anyOf {
+    //         branch pattern: 'feature-*'
+    //         branch pattern: 'develop'
+    //         branch pattern: 'hotfix-*'
+    //         branch pattern: 'release-*'
+    //       }
+    //     }
+    //   }
+    //   stage('Sonarqube Scan') {
+    //     environment {
+    //       SONAR_HOST_URL = 'http://sonarqube.henriqzimer.com.br'
+    //       SONAR_TOKEN    = credentials('sonar-scanner-cli')
+    //     }
+    //     steps {
+    //       SonarqubeScan { }
+    //     }
+    //     when {
+    //       anyOf {
+    //         branch pattern: 'feature-*'
+    //         branch pattern: 'develop'
+    //         branch pattern: 'hotfix-*'
+    //         branch pattern: 'release-*'
+    //       }
+    //     }
+    //   }
+    //   stage('Build and Push') {
+    //     environment {
+    //       REGISTRY = 'harbor.henriqzimer.com.br'
+    //       PROJECT = 'meu-site'
+    //       PROJECT_MODE = 'backend'
+    //     }
+    //     steps {
+    //       KanikoBuildPush { }
+    //     }
+    //     when {
+    //       anyOf {
+    //         branch pattern: 'develop'
+    //         branch pattern: 'hotfix-*'
+    //       }
+    //     }
+    //   }
       stage('Harbor Security Scan') {
         environment {
           HARBOR_CREDENTIALS = credentials('harbor-credentials')

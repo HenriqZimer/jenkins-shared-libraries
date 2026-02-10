@@ -56,7 +56,7 @@ def call (body) {
       PROJECT=${PROJECT}
       REPOSITORY=$(echo "${JOB_NAME%/*}" | tr '[:upper:]' '[:lower:]')
       REGISTRY="https://${REGISTRY}"
-      HARBOR_API_PATH="api/v2.0/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts/${TAG}"
+      HARBOR_API_PATH="api/v2.0/projects/${PROJECT}/repositories/${PROJECT_MODE}/artifacts/${TAG}"
 
       echo "   • Repository:  ${REPOSITORY}"
       echo "   • Project:     ${PROJECT}"
@@ -148,7 +148,7 @@ def call (body) {
         echo "❌ ERROR: Timeout - Reached maximum retry of ${MAX_RETRY} attempts"
         echo "   Last scan status: ${SCAN_STATUS}"
         echo "   Please check Harbor manually:"
-        echo "   ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts-tab"
+        echo "   ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${PROJECT_MODE}/artifacts-tab"
         exit 1
       fi
 
@@ -172,7 +172,7 @@ def call (body) {
           echo "      3. Rebuild and rescan the image"
           echo ""
           echo "   🔗 Detailed Report:"
-          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts-tab"
+          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${PROJECT_MODE}/artifacts-tab"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
           exit 1
@@ -184,7 +184,7 @@ def call (body) {
           echo "   Pipeline will continue, but review is recommended."
           echo ""
           echo "   🔗 Review Report:"
-          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts-tab"
+          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${PROJECT_MODE}/artifacts-tab"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
           # Uncomment next line to fail on High severity:
@@ -198,7 +198,7 @@ def call (body) {
           echo "   Consider reviewing and planning fixes."
           echo ""
           echo "   🔗 View Report:"
-          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts-tab"
+          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${PROJECT_MODE}/artifacts-tab"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
           ;;
@@ -228,7 +228,7 @@ def call (body) {
           echo "   Last scan status: ${SCAN_STATUS}"
           echo ""
           echo "   🔗 Manual verification required:"
-          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts-tab"
+          echo "      ${REGISTRY}/harbor/projects/${PROJECT}/repositories/${PROJECT_MODE}/artifacts-tab"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
           # Decide if you want to fail on unknown - uncomment to fail:

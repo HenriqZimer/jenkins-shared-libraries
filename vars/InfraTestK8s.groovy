@@ -75,7 +75,7 @@ def call (body) {
 
       git clone ${GIT_SSH_URL}
       echo "   ✓ Repository cloned"
-      cd meu-site-helm-chart
+      cd meu-site-helm-chart/chart
       echo "   ✓ Changed to CI directory"
       echo ""
 

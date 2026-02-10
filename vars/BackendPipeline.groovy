@@ -12,7 +12,7 @@ def call (body = null) {
         yamlFile 'jenkinsPod.yaml'
       }
     }
-    // stages {
+    stages {
     //   stage('Lint Format Test') {
     //     environment {
     //       PROJECT = 'meu-site'

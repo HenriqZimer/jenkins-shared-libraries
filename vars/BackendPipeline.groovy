@@ -101,7 +101,7 @@ def call (body = null) {
           JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
           GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
-          NAMESPACE = 'testes-ci-backend'
+          NAMESPACE = 'ci-backend'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'backend'
           PROJECT_MODE_DP = 'frontend'
@@ -121,7 +121,7 @@ def call (body = null) {
           always {
             container('helm') {
               sh '''
-              helm uninstall ${PROJECT}-${PROJECT_MODE} --namespace ${NAMESPACE}
+              helm uninstall ${PROJECT} --namespace ${NAMESPACE}
             '''
             }
           }

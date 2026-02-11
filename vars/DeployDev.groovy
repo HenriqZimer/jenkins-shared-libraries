@@ -4,7 +4,7 @@ def call (body) {
   body.delegate = settings
   body()
 
-  container('alpine-harbor-scanner') {
+  container('alpine') {
     sh '''
       set -e
       set +x

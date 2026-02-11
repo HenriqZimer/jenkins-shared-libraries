@@ -79,7 +79,7 @@ def call (body) {
       export TARGET_SERVICE="${PROJECT_MODE}"
 
       # Usando yq com env para evitar erros de lexer/parser
-      yq -i ".deployments.[env(TARGET_SERVICE)].image.tag = env(TARGET_TAG)" values-dev.yaml
+      yq -i ".[env(TARGET_SERVICE)].image.tag = env(TARGET_TAG)" values-dev.yaml
 
       echo "   ✓ Updated values-dev.yaml for ${PROJECT_MODE} with tag: ${IMAGE_TAG}"
 

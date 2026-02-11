@@ -54,11 +54,11 @@ def call (body) {
       echo "📦 Artifact Details:"
       echo "   • Old Tag:  ${OLD_TAG}"
       echo "   • New Tag:  ${TAG}"
-      echo "   • Image:    ${REGISTRY}/${PROJECT}/${REPOSITORY}"
+      echo "   • Image:    ${REGISTRY}/${PROJECT}/${PROJECT_MODE}"
       echo ""
 
-      OLD_DESTINATION="${REGISTRY}/${PROJECT}/${REPOSITORY}:${OLD_TAG}"
-      NEW_DESTINATION="${REGISTRY}/${PROJECT}/${REPOSITORY}:${TAG}"
+      OLD_DESTINATION="${REGISTRY}/${PROJECT}/${PROJECT_MODE}:${OLD_TAG}"
+      NEW_DESTINATION="${REGISTRY}/${PROJECT}/${PROJECT_MODE}:${TAG}"
 
       echo "🚀 Promoting artifact..."
       echo "   From: ${OLD_DESTINATION}"

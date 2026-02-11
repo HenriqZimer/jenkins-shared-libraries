@@ -26,7 +26,6 @@ def call (body = null) {
             branch pattern: 'feature-*'
             branch pattern: 'develop'
             branch pattern: 'hotfix-*'
-            branch pattern: 'release-*'
           }
         }
       }
@@ -43,7 +42,6 @@ def call (body = null) {
             branch pattern: 'feature-*'
             branch pattern: 'develop'
             branch pattern: 'hotfix-*'
-            branch pattern: 'release-*'
           }
         }
       }

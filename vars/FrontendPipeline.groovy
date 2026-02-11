@@ -146,11 +146,11 @@ def call (body = null) {
       }
       stage('Deploy to Staging') {
         environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-gitea')
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
           GIT_EMAIL = 'jenkins@henriqzimer.com.br'
           GIT_USER = 'Jenkins CI'
-          GIT_SSH_URL = 'git@github.com:HenriqZimer/helm-applications.git'
+          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
           PROJECT = 'meu-site'
           PROJECT_MODE = 'frontend'
         }
@@ -170,9 +170,9 @@ def call (body = null) {
           GIT_URL = 'github.com'
           GIT_EMAIL = 'jenkins@henriqzimer.com.br'
           GIT_USER = 'Jenkins CI'
-          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-frontend.git'
+          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
           PROJECT = 'meu-site'
-          PROJECT_MODE = 'backend'
+          PROJECT_MODE = 'frontend'
         }
         steps {
           input message: 'Would you like to promote to production?'

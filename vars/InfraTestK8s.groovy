@@ -92,8 +92,8 @@ def call (body) {
         --values values-ci.yaml \
         --namespace ${NAMESPACE} \
         --create-namespace \
-        --set deployments.${PROJECT_MODE_DP}.image.tag="${IMAGE_TAG_DP}" \
-        --set deployments.${PROJECT_MODE}.image.tag="${IMAGE_TAG}" \
+        --set ${PROJECT_MODE_DP}.image.tag="${IMAGE_TAG_DP}" \
+        --set ${PROJECT_MODE}.image.tag="${IMAGE_TAG}" \
         --wait \
         --timeout 5m
 

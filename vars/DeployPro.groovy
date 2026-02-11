@@ -56,18 +56,18 @@ def call (body) {
       echo ""
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-      echo "📥 Step 3/4: Cloning helm-applications repository..."
+      echo "📥 Step 3/4: Cloning helm repository..."
       echo ""
 
-      if [ ! -d helm-applications ]; then
+      if [ ! -d ${PROJECT}-helm-chart ]; then
         git clone $GIT_SSH_URL
         echo "   ✓ Repository cloned"
       else
         echo "   ℹ️  Repository already exists"
       fi
 
-      cd helm-applications/${PROJECT}
-      echo "   ✓ Changed to ${PROJECT} directory"
+      cd ${PROJECT}-helm-chart/chart
+      echo "   ✓ Changed to CI directory"
       echo ""
 
       echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -79,7 +79,7 @@ def call (body) {
       export TARGET_SERVICE="${PROJECT_MODE}"
 
       # Usando yq com env para evitar erros de lexer/parser
-      yq -i ".deployments.[env(TARGET_SERVICE)].image.tag = env(TARGET_TAG)" values-pro.yaml
+      yq -i ".[env(TARGET_SERVICE)].image.tag = env(TARGET_TAG)" values-pro.yaml
 
       echo "   ✓ Updated values-pro.yaml for ${PROJECT_MODE} with tag: ${IMAGE_TAG}"
 

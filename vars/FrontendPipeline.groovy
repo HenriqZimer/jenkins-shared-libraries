@@ -13,120 +13,120 @@ def call (body = null) {
       }
     }
     stages {
-      // stage('Lint Format Test') {
-      //   environment {
-      //     PROJECT = 'meu-site'
-      //     PROJECT_MODE = 'frontend'
-      //   }
-      //   steps {
-      //     NodeLintFormatTest { }
-      //   }
-      //   when {
-      //     anyOf {
-      //       branch pattern: 'feature-*'
-      //       branch pattern: 'develop'
-      //       branch pattern: 'hotfix-*'
-      //       branch pattern: 'release-*'
-      //     }
-      //   }
-      // }
-      // stage('Sonarqube Scan') {
-      //   environment {
-      //     SONAR_HOST_URL = 'http://sonarqube.henriqzimer.com.br'
-      //     SONAR_TOKEN    = credentials('sonar-scanner-cli')
-      //   }
-      //   steps {
-      //     SonarqubeScan { }
-      //   }
-      //   when {
-      //     anyOf {
-      //       branch pattern: 'feature-*'
-      //       branch pattern: 'develop'
-      //       branch pattern: 'hotfix-*'
-      //       branch pattern: 'release-*'
-      //     }
-      //   }
-      // }
-      // stage('Build and Push') {
-      //   environment {
-      //     REGISTRY = 'harbor.henriqzimer.com.br'
-      //     PROJECT = 'meu-site'
-      //     PROJECT_MODE = 'frontend'
-      //   }
-      //   steps {
-      //     KanikoBuildPush { }
-      //   }
-      //   when {
-      //     anyOf {
-      //       branch pattern: 'develop'
-      //       branch pattern: 'hotfix-*'
-      //     }
-      //   }
-      // }
-      // stage('Harbor Security Scan') {
-      //   environment {
-      //     HARBOR_CREDENTIALS = credentials('harbor-credentials')
-      //     REGISTRY = 'harbor.henriqzimer.com.br'
-      //     PROJECT = 'meu-site'
-      //     PROJECT_MODE = 'frontend'
-      //   }
-      //   steps {
-      //     HarborSecurityScan { }
-      //   }
-      //   when {
-      //     anyOf {
-      //       branch pattern: 'develop'
-      //       branch pattern: 'hotfix-*'
-      //     }
-      //   }
-      // }
-      // stage('Artifact Promotion') {
-      //   environment {
-      //     REGISTRY = 'harbor.henriqzimer.com.br'
-      //     PROJECT = 'meu-site'
-      //     PROJECT_MODE = 'frontend'
-      //   }
-      //   steps {
-      //     CraneArtifactPromotion { }
-      //   }
-      //   when {
-      //     anyOf {
-      //       branch pattern: 'release-*'
-      //       branch pattern: 'v*'
-      //     }
-      //   }
-      // }
-      // stage('Infrastructure Tests on K8s') {
-      //   environment {
-      //     JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
-      //     GIT_URL = 'github.com'
-      //     GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
-      //     NAMESPACE = 'testes-ci-frontend'
-      //     PROJECT = 'meu-site'
-      //     PROJECT_MODE = 'frontend'
-      //     PROJECT_MODE_DP='backend'
-      //     PORT = '3000'
-      //     HEALTHCHECK_ENDPOINT = '/'
-      //   }
-      //   steps {
-      //     InfraTestK8s { }
-      //   }
-      //   when {
-      //     anyOf {
-      //       branch pattern: 'develop'
-      //       branch pattern: 'hotfix-*'
-      //     }
-      //   }
-      //   post {
-      //     always {
-      //       container('helm') {
-      //         sh '''
-      //           helm uninstall ${PROJECT} --namespace ${NAMESPACE}
-      //         '''
-      //       }
-      //     }
-      //   }
-      // }
+      stage('Lint Format Test') {
+        environment {
+          PROJECT = 'meu-site'
+          PROJECT_MODE = 'frontend'
+        }
+        steps {
+          NodeLintFormatTest { }
+        }
+        when {
+          anyOf {
+            branch pattern: 'feature-*'
+            branch pattern: 'develop'
+            branch pattern: 'hotfix-*'
+            branch pattern: 'release-*'
+          }
+        }
+      }
+      stage('Sonarqube Scan') {
+        environment {
+          SONAR_HOST_URL = 'http://sonarqube.henriqzimer.com.br'
+          SONAR_TOKEN    = credentials('sonar-scanner-cli')
+        }
+        steps {
+          SonarqubeScan { }
+        }
+        when {
+          anyOf {
+            branch pattern: 'feature-*'
+            branch pattern: 'develop'
+            branch pattern: 'hotfix-*'
+            branch pattern: 'release-*'
+          }
+        }
+      }
+      stage('Build and Push') {
+        environment {
+          REGISTRY = 'harbor.henriqzimer.com.br'
+          PROJECT = 'meu-site'
+          PROJECT_MODE = 'frontend'
+        }
+        steps {
+          KanikoBuildPush { }
+        }
+        when {
+          anyOf {
+            branch pattern: 'develop'
+            branch pattern: 'hotfix-*'
+          }
+        }
+      }
+      stage('Harbor Security Scan') {
+        environment {
+          HARBOR_CREDENTIALS = credentials('harbor-credentials')
+          REGISTRY = 'harbor.henriqzimer.com.br'
+          PROJECT = 'meu-site'
+          PROJECT_MODE = 'frontend'
+        }
+        steps {
+          HarborSecurityScan { }
+        }
+        when {
+          anyOf {
+            branch pattern: 'develop'
+            branch pattern: 'hotfix-*'
+          }
+        }
+      }
+      stage('Artifact Promotion') {
+        environment {
+          REGISTRY = 'harbor.henriqzimer.com.br'
+          PROJECT = 'meu-site'
+          PROJECT_MODE = 'frontend'
+        }
+        steps {
+          CraneArtifactPromotion { }
+        }
+        when {
+          anyOf {
+            branch pattern: 'release-*'
+            branch pattern: 'v*'
+          }
+        }
+      }
+      stage('Infrastructure Tests on K8s') {
+        environment {
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
+          GIT_URL = 'github.com'
+          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
+          NAMESPACE = 'testes-ci-frontend'
+          PROJECT = 'meu-site'
+          PROJECT_MODE = 'frontend'
+          PROJECT_MODE_DP='backend'
+          PORT = '3000'
+          HEALTHCHECK_ENDPOINT = '/'
+        }
+        steps {
+          InfraTestK8s { }
+        }
+        when {
+          anyOf {
+            branch pattern: 'develop'
+            branch pattern: 'hotfix-*'
+          }
+        }
+        post {
+          always {
+            container('helm') {
+              sh '''
+                helm uninstall ${PROJECT} --namespace ${NAMESPACE}
+              '''
+            }
+          }
+        }
+      }
       stage('Deploy to Development') {
         environment {
           JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')

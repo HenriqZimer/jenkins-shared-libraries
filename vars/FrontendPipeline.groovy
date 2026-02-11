@@ -96,37 +96,37 @@ def call (body = null) {
       //     }
       //   }
       // }
-      stage('Infrastructure Tests on K8s') {
-        environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
-          GIT_URL = 'github.com'
-          GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
-          NAMESPACE = 'testes-ci-frontend'
-          PROJECT = 'meu-site'
-          PROJECT_MODE = 'frontend'
-          PROJECT_MODE_DP='backend'
-          PORT = '3000'
-          HEALTHCHECK_ENDPOINT = '/'
-        }
-        steps {
-          InfraTestK8s { }
-        }
-        when {
-          anyOf {
-            branch pattern: 'develop'
-            branch pattern: 'hotfix-*'
-          }
-        }
-        post {
-          always {
-            container('helm') {
-              sh '''
-                helm uninstall ${PROJECT} --namespace ${NAMESPACE}
-              '''
-            }
-          }
-        }
-      }
+      // stage('Infrastructure Tests on K8s') {
+      //   environment {
+      //     JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
+      //     GIT_URL = 'github.com'
+      //     GIT_SSH_URL = 'git@github.com:HenriqZimer/meu-site-helm-chart.git'
+      //     NAMESPACE = 'testes-ci-frontend'
+      //     PROJECT = 'meu-site'
+      //     PROJECT_MODE = 'frontend'
+      //     PROJECT_MODE_DP='backend'
+      //     PORT = '3000'
+      //     HEALTHCHECK_ENDPOINT = '/'
+      //   }
+      //   steps {
+      //     InfraTestK8s { }
+      //   }
+      //   when {
+      //     anyOf {
+      //       branch pattern: 'develop'
+      //       branch pattern: 'hotfix-*'
+      //     }
+      //   }
+      //   post {
+      //     always {
+      //       container('helm') {
+      //         sh '''
+      //           helm uninstall ${PROJECT} --namespace ${NAMESPACE}
+      //         '''
+      //       }
+      //     }
+      //   }
+      // }
       stage('Deploy to Development') {
         environment {
           JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')

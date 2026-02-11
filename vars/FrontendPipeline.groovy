@@ -166,7 +166,7 @@ def call (body = null) {
       }
       stage('Create Tag?') {
         environment {
-          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-gitea')
+          JENKINS_SSH_PRIVATE_KEY = credentials('jenkins-github')
           GIT_URL = 'github.com'
           GIT_EMAIL = 'jenkins@henriqzimer.com.br'
           GIT_USER = 'Jenkins CI'
